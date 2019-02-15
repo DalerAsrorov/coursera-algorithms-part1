@@ -28,4 +28,5 @@ connected(x, y) // checks if there is a path from x to y in a connected graph
 ## Quick Find
 
 - Eager approach implementation
-  - [file](./eager-approach.js)
+  - [Eager approach practice](./eager-approach.js)
+- [Primitive QuickFind implementation]('./QuickFind.js)
