@@ -39,3 +39,8 @@ connected(x, y) // checks if there is a path from x to y in a connected graph
 - Keep track of the size of each tree (number of objects)
 - Balance by linking root of smaller tree to root of larger tree.
   - Reasonable alternatives: union by height or "rank"
+- Running Time
+  - **Find:** takes time proportional to depth of *p* and *q*
+  - **Union:** takes constant time, given roots
+ Proposition
+  - Depth of any node *x* is at most lg *N*.
