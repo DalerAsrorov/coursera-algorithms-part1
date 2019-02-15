@@ -30,3 +30,12 @@ connected(x, y) // checks if there is a path from x to y in a connected graph
 - Eager approach implementation
   - [Eager approach practice](./eager-approach.js)
 - [Primitive QuickFind implementation](./QuickFind.js)
+
+## Quick Union
+- [Primitive QuickUnion implementation](./QuickUnion.js)
+
+## Weighted Quick Union
+- Modify quick-union to avoid tall trees
+- Keep track of the size of each tree (number of objects)
+- Balance by linking root of smaller tree to root of larger tree.
+  - Reasonable alternatives: union by height or "rank"
