@@ -44,3 +44,17 @@ connected(x, y) // checks if there is a path from x to y in a connected graph
   - **Union:** takes constant time, given roots
  Proposition
   - Depth of any node *x* is at most lg *N*.
+## Path compression
+- Just after computing the root of *p*, set the id of each examined node to point to that root.
+```js
+  // chase parent pointers until we reach the root
+  // (depth of i array accesses)
+  root(i) {
+    while(i != this.ids[i]) {
+      // New line: one-pass variant for compression algorithm
+      this.ids[i] = this.ids[this.ids[i]];
+      i = this.ids[i];
+    }
+    return i;
+  }
+```
