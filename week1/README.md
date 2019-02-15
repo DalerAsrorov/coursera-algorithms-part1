@@ -35,6 +35,7 @@ connected(x, y) // checks if there is a path from x to y in a connected graph
 - [Primitive QuickUnion implementation](./QuickUnion.js)
 
 ## Weighted Quick Union
+- [Implementation]('./WeightedUnionFind.js)
 - Modify quick-union to avoid tall trees
 - Keep track of the size of each tree (number of objects)
 - Balance by linking root of smaller tree to root of larger tree.
@@ -45,6 +46,7 @@ connected(x, y) // checks if there is a path from x to y in a connected graph
  Proposition
   - Depth of any node *x* is at most lg *N*.
 ## Path compression
+- [Implementation]('./CompressedWeightedQuickUnionUF.js)
 - Just after computing the root of *p*, set the id of each examined node to point to that root.
 ```js
   // chase parent pointers until we reach the root
@@ -57,4 +59,4 @@ connected(x, y) // checks if there is a path from x to y in a connected graph
     }
     return i;
   }
-```
+```	
