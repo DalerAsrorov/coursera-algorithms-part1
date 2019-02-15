@@ -30,3 +30,33 @@ connected(x, y) // checks if there is a path from x to y in a connected graph
 - Eager approach implementation
   - [Eager approach practice](./eager-approach.js)
 - [Primitive QuickFind implementation](./QuickFind.js)
+
+## Quick Union
+- [Primitive QuickUnion implementation](./QuickUnion.js)
+
+## Weighted Quick Union
+- [Implementation]('./WeightedUnionFind.js)
+- Modify quick-union to avoid tall trees
+- Keep track of the size of each tree (number of objects)
+- Balance by linking root of smaller tree to root of larger tree.
+  - Reasonable alternatives: union by height or "rank"
+- Running Time
+  - **Find:** takes time proportional to depth of *p* and *q*
+  - **Union:** takes constant time, given roots
+ Proposition
+  - Depth of any node *x* is at most lg *N*.
+## Path compression
+- [Implementation]('./CompressedWeightedQuickUnionUF.js)
+- Just after computing the root of *p*, set the id of each examined node to point to that root.
+```js
+  // chase parent pointers until we reach the root
+  // (depth of i array accesses)
+  root(i) {
+    while(i != this.ids[i]) {
+      // New line: one-pass variant for compression algorithm
+      this.ids[i] = this.ids[this.ids[i]];
+      i = this.ids[i];
+    }
+    return i;
+  }
+```	
