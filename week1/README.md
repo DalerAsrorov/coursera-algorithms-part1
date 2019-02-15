@@ -59,4 +59,18 @@ connected(x, y) // checks if there is a path from x to y in a connected graph
     }
     return i;
   }
-```	
+```
+## Applications
+### Percolation
+- A model for many physical systems
+  - N-by-N grid of sites
+  - Each site is open with probability *p* (or blocked with probability 1 - p)
+  - System **percolates** iff top and bottom are connected by open sites. 
+- When *N* is large, theory guarantees a sharp threshold *p**
+  - When p > p*: almost certainly percolates.
+  - When p < p*: almost certainly does not percolate.
+  Q: What is the value of *p**?
+- **Monte Carlo simulation**
+  - Initialize *N*-by-*N* whole grid to be blocked.
+  - Declare random sites open until top connected to bottom.
+  - Vacancy percentage estimates *p**.
