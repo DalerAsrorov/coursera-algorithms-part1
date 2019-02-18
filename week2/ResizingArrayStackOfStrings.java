@@ -20,6 +20,13 @@ public class ResizingArrayStackOfStrings {
 		String item = strs[--index];
 		// allow garbage collector to reclaim the memory
 		strs[index] = null;
+		// improve pop operation performance by
+		// dividing an array into quarter if
+		// the number of elements in stack are proportional
+		// to the quarter of the stack length
+		if (index > 0 && index == strs.length / 4) {
+			this.resize(strs.length / 2);
+		}
 		return item;
 	}
 
