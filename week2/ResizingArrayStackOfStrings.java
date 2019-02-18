@@ -1,18 +1,18 @@
 package StackOfStrings;
 
-public class FixedCapacityStackOfStrings {
+public class ResizingArrayStackOfStrings {
 	private String[] strs;
 	private int index = 0;
 
-	public FixedCapacityStackOfStrings(int size) {
-		strs = new String[size];
-	}
-
-	public boolean isEmpty() {
-		return index == 0;
+	public ResizingArrayStackOfStrings() {
+		strs = new String[1];
 	}
 
 	public void push(String item) {
+		if (index == strs.length) {
+			this.resize(strs.length * 2);
+		}
+
 		strs[index++] = item;
 	}
 
@@ -23,6 +23,16 @@ public class FixedCapacityStackOfStrings {
 		return item;
 	}
 
+	private void resize(int newSize) {
+		String[] copy = new String[newSize];
+
+		for (int i = 0; i < strs.length; i++) {
+			copy[i] = strs[i];
+		}
+
+		strs = copy;
+	}
+
 	public void print() {
 		for (int i = index - 1; i >= 0; i--) {
 			System.out.print(strs[i] + ", ");
@@ -31,11 +41,13 @@ public class FixedCapacityStackOfStrings {
 	}
 
 	public static void main(String[] args) {
-		int size = 10;
-		FixedCapacityStackOfStrings stack = new FixedCapacityStackOfStrings(size);
+		ResizingArrayStackOfStrings stack = new ResizingArrayStackOfStrings();
 		stack.push("1");
+		System.out.println(stack.strs.length);
 		stack.push("2");
+		System.out.println(stack.strs.length);
 		stack.push("3");
+		System.out.println(stack.strs.length);
 		stack.print();
 		stack.pop();
 		stack.print();
