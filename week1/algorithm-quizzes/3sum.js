@@ -8,7 +8,7 @@ function threeSum(arr, target = 0) {
     let k = arr.length - 1;
 
     while (j < k) {
-      if (arr[i] + arr[j] + arr[k] === target) {
+      if (i !== j && arr[i] + arr[j] + arr[k] === target) {
         result = [...result, [arr[i], arr[j], arr[k]]];
         j++;
         k--;
