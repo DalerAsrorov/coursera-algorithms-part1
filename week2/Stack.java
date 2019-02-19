@@ -7,7 +7,7 @@ public class Stack<Item> implements Iterable<Item> {
 		Item item;
 		Node next;
 	}
-	
+
 	private class ListIterator implements Iterator<Item> {
 		private Node current = top;
 
@@ -22,42 +22,42 @@ public class Stack<Item> implements Iterable<Item> {
 			current = current.next;
 			return item;
 		}
-		
+
 	}
-	
+
 	@Override
 	public Iterator<Item> iterator() {
 		return new ListIterator();
-		
+
 	}
-	
+
 	private Node top;
-	
+
 	public Stack() {
 		top = null;
 	}
-	
+
 	public boolean isEmpty() {
 		return top == null;
 	}
-	
+
 	public Item peek() {
 		return top.item;
 	}
-	
+
 	public void push(Item data) {
 		Node oldTop = top;
 		top = new Node();
 		top.item = data;
 		top.next = oldTop;
 	}
-	
+
 	public Item pop() {
 		Item deleted = top.item;
 		top = top.next;
 		return deleted;
 	}
-	
+
 	public void print() {
 		Node last = top;
 		while (last != null) {
@@ -66,17 +66,17 @@ public class Stack<Item> implements Iterable<Item> {
 		}
 		System.out.println("\n");
 	}
-	
-	public static void main(String [] args) {
+
+	public static void main(String[] args) {
 		Stack<Integer> stack = new Stack<Integer>();
 		stack.push(1);
 		stack.push(2);
 		stack.push(3);
 		stack.pop();
-		
+
 		Iterator<Integer> it = stack.iterator();
-		
-		while(it.hasNext()) {
+
+		while (it.hasNext()) {
 			System.out.println(it.next());
 		}
 	}
