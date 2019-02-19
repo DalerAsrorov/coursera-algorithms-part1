@@ -1,5 +1,3 @@
-package StackOfStrings;
-
 public class ResizingArrayStackOfStrings {
 	private String[] strs;
 	private int index = 0;

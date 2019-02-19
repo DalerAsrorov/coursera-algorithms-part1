@@ -1,5 +1,3 @@
-package StackOfStrings;
-
 public class FixedCapacityStackOfStrings {
 	private String[] strs;
 	private int index = 0;
