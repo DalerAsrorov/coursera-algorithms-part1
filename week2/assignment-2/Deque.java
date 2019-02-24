@@ -31,8 +31,8 @@ public class Deque<Item> implements Iterable<Item> {
 		}
 	}
 
-	Node first, last;
-	int size;
+	private Node first, last;
+	private int size;
 
 	public Deque() {
 		first = null;

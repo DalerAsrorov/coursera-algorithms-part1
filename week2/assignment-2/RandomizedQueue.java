@@ -1,3 +1,4 @@
+
 /* *****************************************************************************
  *  Name:
  *  Date:
@@ -11,7 +12,7 @@ import java.util.NoSuchElementException;
 import java.util.Iterator;
 
 public class RandomizedQueue<Item> implements Iterable<Item> {
-    private class QueueIterator implements Iterator <Item> {
+    private class QueueIterator implements Iterator<Item> {
         private int curr;
         private Item[] shuffled;
 
@@ -22,7 +23,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         private void copyArr() {
-            shuffled = (Item []) new Object[tail];
+            shuffled = (Item[]) new Object[tail];
             for (int i = 0; i < tail; i++) {
                 shuffled[i] = queueList[i];
             }
@@ -55,10 +56,12 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         tail = 0;
         queueList = (Item[]) new Object[1];
     }
+
     public boolean isEmpty() {
         // is the randomized queue empty?
         return tail == 0;
     }
+
     public int size() {
         // return the number of items on the randomized queue
         return tail;
@@ -81,6 +84,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         queueList[tail++] = item;
     }
+
     public Item dequeue() {
         // remove and return a random item
         if (isEmpty()) {
@@ -98,6 +102,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         return temp;
     }
+
     public Item sample() {
         // return a random item (but do not remove it)
         if (isEmpty()) {
@@ -106,10 +111,12 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         return queueList[StdRandom.uniform(0, tail)];
     }
+
     public Iterator<Item> iterator() {
         // return an independent iterator over items in random order
         return new QueueIterator();
     }
+
     public static void main(String[] args) {
         RandomizedQueue<Integer> queue = new RandomizedQueue<>();
 
@@ -119,7 +126,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         Iterator<Integer> it1 = queue.iterator();
 
-        while(it1.hasNext()) {
+        while (it1.hasNext()) {
             System.out.println(it1.next());
         }
         queue.sample();
